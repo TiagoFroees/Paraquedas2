@@ -9,27 +9,19 @@
     <h:body>
          <h:form>
              <p:panelGrid columns="2">
-
                 <p:outputLabel value="Nome" />
                 <p:inputText value="#{guiCliente.cliente.nome}"/>
-
                 <p:outputLabel value="Endereco" />
                 <p:inputText value="#{guiCliente.cliente.endereco}"/>
-
                 <p:outputLabel value="Bairro" />
                 <p:inputText value="#{guiCliente.cliente.bairro}"/>
-
                 <p:outputLabel value="Telefone" />
                 <p:inputText value="#{guiCliente.cliente.telefone}"/>
-
                 <p:outputLabel value="Email" />
                 <p:inputText value="#{guiCliente.cliente.email}"/>
-
-
                 <p:outputLabel value="DataNascimento" />
                 <p:inputText value="#{guiCliente.cliente.dataNascimento}"/>
-                
-                
+                            
                 <p:commandButton value="Gravar" action="#{guiCliente.gravarCliente()}"/>
 
             </p:panelGrid> 
