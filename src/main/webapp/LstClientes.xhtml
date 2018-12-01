@@ -8,42 +8,31 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}"/>
+            <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}"ajax= false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
-
-            <p:dataTable var="c" value="#{guiCliente.clientes}" >
+            <p:dataTable var="c" value="#{guiCliente.clientes}"id="tblcliente" >
                 <p:column headerText="Nome">
                     <h:outputText value="#{c.nome}" />
                 </p:column>
-
                 <p:column headerText="Endereco">
                     <h:outputText value="#{c.endereco}" />
                 </p:column>
-
                 <p:column headerText="Bairro">
                     <h:outputText value="#{c.bairro}" />
                 </p:column>
-
                 <p:column headerText="Telefone">
                     <h:outputText value="#{c.telefone}" />
                 </p:column>
-
                 <p:column headerText="Email">
                     <h:outputText value="#{c.email}" />
                 </p:column>
-
                 <p:column headerText="DataNascimento">
                     <h:outputText value="#{c.dataNascimento}" />
                 </p:column>
-
-
                 <p:column >
                     <p:commandButton value="Excluir" action="#{guiCliente.excluir(cliente)}" ajax="true" update="tblcliente" />
-
                 </p:column>
-
             </p:dataTable>
-
         </h:form>
     </h:body>
 </html>

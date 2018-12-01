@@ -8,37 +8,29 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiProduto.novoProduto()}"/>
+            <p:commandButton value="incluir" action="#{guiProduto.novoProduto()}"ajax= false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
 
-            <p:dataTable var="p" value="#{guiProduto.produtos}" >
+            <p:dataTable var="p" value="#{guiProduto.produtos}"id="tblproduto" >
                 <p:column headerText="CodProduto">
                     <h:outputText value="#{p.codProduto}" />
                 </p:column>
-
                 <p:column headerText="Nome">
                     <h:outputText value="#{p.nome}" />
                 </p:column>
-
                 <p:column headerText="Modelo">
                     <h:outputText value="#{p.modelo}" />
                 </p:column>
-
                 <p:column headerText="Categoria">
                     <h:outputText value="#{p.categoria}" />
                 </p:column>
-                
                 <p:column headerText="Estoque">
                     <h:outputText value="#{p.estoque}" />
                 </p:column>
-                
                 <p:column >
-                    <p:commandButton value="Excluir" action="#{guiProduto.excluir(produto)}" ajax="true" update="tblproduto" />
-                   
+                    <p:commandButton value="Excluir" action="#{guiProduto.excluir(produto)}" ajax="true" update="tblproduto" />  
                 </p:column>
-
             </p:dataTable>
-
         </h:form>
     </h:body>
 </html>

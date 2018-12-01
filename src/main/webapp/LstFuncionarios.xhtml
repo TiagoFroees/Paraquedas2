@@ -8,42 +8,33 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}"/>
+            <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}"ajax= false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
-
-            <p:dataTable var="f" value="#{guiFuncionario.funcionarios}" >
+            <br />
+            <br />
+            <p:dataTable var="f" value="#{guiFuncionario.funcionarios}"id="tblfuncionario"> 
                 <p:column headerText="Nome">
                     <h:outputText value="#{f.nome}" />
                 </p:column>
-
                 <p:column headerText="Endereco">
                     <h:outputText value="#{f.endereco}" />
                 </p:column>
-
                 <p:column headerText="Bairro">
                     <h:outputText value="#{f.bairro}" />
                 </p:column>
-
                 <p:column headerText="Telefone">
                     <h:outputText value="#{f.telefone}" />
                 </p:column>
-
                 <p:column headerText="Email">
                     <h:outputText value="#{f.email}" />
                 </p:column>
-
                 <p:column headerText="DataNascimento">
                     <h:outputText value="#{f.dataNascimento}" />
                 </p:column>
-
-
                 <p:column >
                     <p:commandButton value="Excluir" action="#{guiFuncionario.excluir(funcionario)}" ajax="true" update="tblfuncionario" />
-
                 </p:column>
-
             </p:dataTable>
-
         </h:form>
     </h:body>
 </html>
