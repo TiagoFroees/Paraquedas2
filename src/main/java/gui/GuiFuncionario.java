@@ -7,7 +7,6 @@ package gui;
 
 import dao.FuncionarioDao;
 import model.Funcionario;
-import model.Pessoa;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

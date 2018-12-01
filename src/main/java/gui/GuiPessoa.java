@@ -20,12 +20,11 @@ import model.Pessoa;
 @Named(value = "guiPessoa")
 @SessionScoped
 public class GuiPessoa implements Serializable {
-    
-    private List<Pessoa>pessoas;
+
+    private List<Pessoa> pessoas;
     private Pessoa pessoa;
     private Boolean incluindo;
-    
-    
+
     @PersistenceContext
     PessoaDao daopessoa;
 
@@ -33,43 +32,39 @@ public class GuiPessoa implements Serializable {
      * Creates a new instance of GuiPessoa
      */
     public GuiPessoa() {
-    }   
-        
-    public String iniciarListaPessoas(){
-       pessoas = daopessoa.getPessoas();
-          return "LstPessoas";
-                      
-        }
-    public String novaPessoa(){
+    }
+
+    public String iniciarListaPessoas() {
+        pessoas = daopessoa.getPessoas();
+        return "LstPessoas";
+
+    }
+
+    public String novaPessoa() {
         pessoa = new Pessoa();
         incluindo = true;
         return "CadPessoas";
-        
-    } 
-    
-    public String gravarPessoa(){
-        if(incluindo){
+
+    }
+
+    public String gravarPessoa() {
+        if (incluindo) {
             daopessoa.incluir(pessoa);
-        }else{
+        } else {
             daopessoa.alterar(pessoa);
         }
         pessoas = daopessoa.getPessoas();
         return "LstPessoas";
     }
-    
-        public String excluir(Pessoa pessoa) {
+
+    public String excluir(Pessoa pessoa) {
         daopessoa.excluir(pessoa);
         pessoas = daopessoa.getPessoas();
         return "LstPessoas";
     }
 
-
     public List<Pessoa> getPessoas() {
         return pessoas;
-    }
-
-    public void setPessoas(List<Pessoa> pessoas) {
-        this.pessoas = pessoas;
     }
 
     public Pessoa getPessoa() {
@@ -87,8 +82,6 @@ public class GuiPessoa implements Serializable {
     public void setIncluindo(Boolean incluindo) {
         this.incluindo = incluindo;
     }
-    
-        
-    }
-    
 
+    
+}

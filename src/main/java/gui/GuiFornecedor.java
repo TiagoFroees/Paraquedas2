@@ -20,12 +20,11 @@ import model.Fornecedor;
 @Named(value = "guiFornecedor")
 @SessionScoped
 public class GuiFornecedor implements Serializable {
-    
-    private List<Fornecedor>fornecedores;
+
+    private List<Fornecedor> fornecedores;
     private Fornecedor fornecedor;
     private Boolean incluindo;
-    
-    
+
     @PersistenceContext
     FornecedorDao daofornecedor;
 
@@ -34,33 +33,39 @@ public class GuiFornecedor implements Serializable {
      */
     public GuiFornecedor() {
     }
-    
-    public String iniciarListaFornecedores(){
-       fornecedores = daofornecedor.getFornecedores();
-          return "LstFornecedores";
-                      
-        }
-    public String novoFornecedor(){
+
+    public String iniciarListaFornecedores() {
+        fornecedores = daofornecedor.getFornecedores();
+        return "LstFornecedores";
+
+    }
+
+    public String novoFornecedor() {
         fornecedor = new Fornecedor();
         incluindo = true;
         return "CadFornecedores";
-        
-    } 
-    
-    public String gravarFornecedor(){
-        if(incluindo){
+
+    }
+
+    public String gravarFornecedor() {
+        if (incluindo) {
             daofornecedor.incluir(fornecedor);
-        }else{
+        } else {
             daofornecedor.alterar(fornecedor);
         }
         fornecedores = daofornecedor.getFornecedores();
         return "LstFornecedores";
     }
 
+    public String excluir(Fornecedor fornecedor) {
+        daofornecedor.excluir(fornecedor);
+        fornecedores = daofornecedor.getFornecedores();
+        return "LstFornecedores";
+    }
+
     public List<Fornecedor> getFornecedores() {
         return fornecedores;
-        
-        
+
     }
 
     public Fornecedor getFornecedor() {
@@ -77,9 +82,7 @@ public class GuiFornecedor implements Serializable {
 
     public void setIncluindo(Boolean incluindo) {
         this.incluindo = incluindo;
-        
-    }
-    
-    }
-    
 
+    }
+
+}
