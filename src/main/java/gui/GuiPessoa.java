@@ -57,7 +57,7 @@ public class GuiPessoa implements Serializable {
         return "LstPessoas";
     }
 
-    public String excluir(Pessoa pessoa) {
+    public String excluirPessoa(Pessoa pessoa) {
         daopessoa.excluir(pessoa);
         pessoas = daopessoa.getPessoas();
         return "LstPessoas";

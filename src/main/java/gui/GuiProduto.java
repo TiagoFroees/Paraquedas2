@@ -58,7 +58,7 @@ public class GuiProduto implements Serializable {
         return "LstProdutos";
     }
 
-    public String excluir(Produto produto) {
+    public String excluirProduto(Produto produto) {
         daoproduto.excluir(produto);
         produtos = daoproduto.getProdutos();
         return "LstProdutos";

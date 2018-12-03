@@ -57,7 +57,7 @@ public class GuiCliente implements Serializable {
         return "LstClientes";
     }
 
-    public String excluir(Cliente cliente) {
+    public String excluirCliente(Cliente cliente) {
         daocliente.excluir(cliente);
         clientes = daocliente.getClientes();
         return "LstClientes";

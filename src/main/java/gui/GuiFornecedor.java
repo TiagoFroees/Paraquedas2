@@ -57,7 +57,7 @@ public class GuiFornecedor implements Serializable {
         return "LstFornecedores";
     }
 
-    public String excluir(Fornecedor fornecedor) {
+    public String excluirFornecedor(Fornecedor fornecedor) {
         daofornecedor.excluir(fornecedor);
         fornecedores = daofornecedor.getFornecedores();
         return "LstFornecedores";

@@ -57,7 +57,7 @@ public class GuiFuncionario implements Serializable {
         return "LstFuncionarios";
     }
 
-    public String excluir(Funcionario funcionario) {
+    public String excluirFuncionario(Funcionario funcionario) {
         daofuncionario.excluir(funcionario);
         funcionarios = daofuncionario.getFuncionarios();
         return "LstFuncionarios";
