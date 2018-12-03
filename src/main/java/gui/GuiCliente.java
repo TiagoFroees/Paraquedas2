@@ -12,7 +12,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -44,7 +43,7 @@ public class GuiCliente implements Serializable {
     public String novoCliente() {
         cliente = new Cliente();
         incluindo = true;
-        return "CadCLientes";
+        return "CadClientes";
 
     }
 
