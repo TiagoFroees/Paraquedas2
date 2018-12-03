@@ -8,11 +8,11 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiPessoa.novaPessoa()}"ajax= false"/> 
+            <p:commandButton value="incluir" action="#{guiPessoa.novaPessoa()}" ajax= "false" /> 
             <p:commandButton value="Voltar" action="index" ajax="false" />
             <br />
             <br />
-            <p:dataTable var="p" value="#{guiPessoa.pessoas}"id="tblpessoa" >
+            <p:dataTable var="p" value="#{guiPessoa.pessoas}" id="tblpessoa" >
                 <p:column headerText="Nome">
                     <h:outputText value="#{p.nome}" />
                 </p:column>
@@ -34,7 +34,7 @@
                 <p:column >
                     <p:commandButton value="Excluir" action="#{guiPessoa.excluirPessoa(pessoa)}" ajax="true" update="tblpessoa"/>
 
-                </p:column
+                </p:column>
             </p:dataTable>
 
         </h:form>

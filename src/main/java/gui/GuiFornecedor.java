@@ -10,7 +10,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.PersistenceContext;
+import javax.ejb.EJB;
 import model.Fornecedor;
 
 /**
@@ -25,7 +25,7 @@ public class GuiFornecedor implements Serializable {
     private Fornecedor fornecedor;
     private Boolean incluindo;
 
-    @PersistenceContext
+    @EJB
     FornecedorDao daofornecedor;
 
     /**

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xhtml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -8,9 +8,9 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}"ajax= false"/>
+            <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
-            <p:dataTable var="c" value="#{guiCliente.clientes}"id="tblcliente" >
+            <p:dataTable var="c" value="#{guiCliente.clientes}" id= "tblcliente" >
                 <p:column headerText="Nome">
                     <h:outputText value="#{c.nome}" />
                 </p:column>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xhtml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -8,31 +8,31 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiFornecedor.novoFornecedor()}"ajax= false"/>
+            <p:commandButton value="incluir" action="#{guiFornecedor.novoFornecedor()}" ajax="false" />
             <p:commandButton value="Voltar" action="index" ajax="false" />
             <br />
             <br />
-            <p:dataTable var="p" value="#{guiFornecedor.fornecedores}"id="tblfornecedor">
+            <p:dataTable var="f" value="#{guiFornecedor.fornecedores}" id="tblfornecedor" >
                 <p:column headerText="Nome">
-                    <h:outputText value="#{p.nome}" />
+                    <h:outputText value="#{f.nome}" />
                 </p:column>
                 <p:column headerText="Endereco">
-                    <h:outputText value="#{p.endereco}" />
+                    <h:outputText value="#{f.endereco}" />
                 </p:column>
                 <p:column headerText="Bairro">
-                    <h:outputText value="#{p.bairro}" />
+                    <h:outputText value="#{f.bairro}" />
                 </p:column>
                 <p:column headerText="Telefone">
-                    <h:outputText value="#{p.telefone}" />
+                    <h:outputText value="#{f.telefone}" />
                 </p:column>
                 <p:column headerText="Email">
-                    <h:outputText value="#{p.email}" />
+                    <h:outputText value="#{f.email}" />
                 </p:column>
                 <p:column headerText="Cnpj">
-                    <h:outputText value="#{p.cnpj}" />
+                    <h:outputText value="#{f.cnpj}" />
                 </p:column>
                 <p:column headerText="Contato">
-                    <h:outputText value="#{p.contato}" />
+                    <h:outputText value="#{f.contato}" />
                 </p:column>
                 <p:commandButton value="Excluir" action="#{guiFornecedor.excluirFornecedor(fornecedor)}" ajax="true"  update="tblfornecedor"/>
 

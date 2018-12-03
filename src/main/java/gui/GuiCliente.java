@@ -11,6 +11,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -25,7 +26,7 @@ public class GuiCliente implements Serializable {
     private Cliente cliente;
     private Boolean incluindo;
 
-    @PersistenceContext
+    @EJB
     ClienteDao daocliente;
 
     /**

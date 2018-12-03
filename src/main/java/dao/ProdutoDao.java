@@ -6,6 +6,7 @@
 package dao;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +16,7 @@ import model.Produto;
  *
  * @author Tiago-PC
  */
+@Stateless
 public class ProdutoDao {
     
     
@@ -32,7 +34,7 @@ public class ProdutoDao {
     }
 
     public List<Produto> getProdutos() {
-        Query  q = em.createQuery("Select p from Produto p");
+        Query  q = em.createQuery("Select o from Produto o");
         return q.getResultList();
     }
     

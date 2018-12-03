@@ -6,6 +6,7 @@
 package dao;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +16,7 @@ import model.Fornecedor;
  *
  * @author Tiago-PC
  */
+@Stateless
 public class FornecedorDao {
     
     

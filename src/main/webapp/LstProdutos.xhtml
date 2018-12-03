@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xhtml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -8,24 +8,24 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiProduto.novoProduto()}"ajax= false"/>
+            <p:commandButton value="incluir" action="#{guiProduto.novoProduto()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
 
-            <p:dataTable var="p" value="#{guiProduto.produtos}"id="tblproduto" >
+            <p:dataTable var="o" value="#{guiProduto.produtos}" id="tblproduto" >
                 <p:column headerText="CodProduto">
-                    <h:outputText value="#{p.codProduto}" />
+                    <h:outputText value="#{o.codProduto}" />
                 </p:column>
                 <p:column headerText="Nome">
-                    <h:outputText value="#{p.nome}" />
+                    <h:outputText value="#{o.nome}" />
                 </p:column>
                 <p:column headerText="Modelo">
-                    <h:outputText value="#{p.modelo}" />
+                    <h:outputText value="#{o.modelo}" />
                 </p:column>
                 <p:column headerText="Categoria">
-                    <h:outputText value="#{p.categoria}" />
+                    <h:outputText value="#{o.categoria}" />
                 </p:column>
                 <p:column headerText="Estoque">
-                    <h:outputText value="#{p.estoque}" />
+                    <h:outputText value="#{o.estoque}" />
                 </p:column>
                 <p:column >
                     <p:commandButton value="Excluir" action="#{guiProduto.excluirProduto(produto)}" ajax="true" update="tblproduto" />  

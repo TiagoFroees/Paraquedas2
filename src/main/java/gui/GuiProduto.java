@@ -11,6 +11,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.persistence.PersistenceContext;
 import model.Produto;
 
@@ -26,7 +27,7 @@ public class GuiProduto implements Serializable {
     private Produto produto;
     private Boolean incluindo;
 
-    @PersistenceContext
+    @EJB
     ProdutoDao daoproduto;
 
     /**

@@ -7,6 +7,7 @@ package dao;
 
 import model.Funcionario;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +16,7 @@ import javax.persistence.Query;
  *
  * @author Tiago-PC
  */
+@Stateless
 public class FuncionarioDao {
 
     @PersistenceContext
@@ -33,7 +35,7 @@ public class FuncionarioDao {
     }
 
     public List<Funcionario> getFuncionarios() {
-        Query q = em.createQuery("Select f from Pessoa f");
+        Query q = em.createQuery("Select d from Pessoa d");
         return q.getResultList();
     }
 

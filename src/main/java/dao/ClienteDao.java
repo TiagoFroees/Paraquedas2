@@ -7,6 +7,7 @@ package dao;
 
 import model.Cliente;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +16,7 @@ import javax.persistence.Query;
  *
  * @author Tiago-PC
  */
+@Stateless
 public class ClienteDao {
 
     @PersistenceContext

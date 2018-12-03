@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xhtml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -8,28 +8,28 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}"ajax= false"/>
+            <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
             <br />
             <br />
-            <p:dataTable var="f" value="#{guiFuncionario.funcionarios}"id="tblfuncionario"> 
+            <p:dataTable var="d" value="#{guiFuncionario.funcionarios}" id="tblfuncionario"> 
                 <p:column headerText="Nome">
-                    <h:outputText value="#{f.nome}" />
+                    <h:outputText value="#{d.nome}" />
                 </p:column>
                 <p:column headerText="Endereco">
-                    <h:outputText value="#{f.endereco}" />
+                    <h:outputText value="#{d.endereco}" />
                 </p:column>
                 <p:column headerText="Bairro">
-                    <h:outputText value="#{f.bairro}" />
+                    <h:outputText value="#{d.bairro}" />
                 </p:column>
                 <p:column headerText="Telefone">
-                    <h:outputText value="#{f.telefone}" />
+                    <h:outputText value="#{d.telefone}" />
                 </p:column>
                 <p:column headerText="Email">
-                    <h:outputText value="#{f.email}" />
+                    <h:outputText value="#{d.email}" />
                 </p:column>
                 <p:column headerText="DataNascimento">
-                    <h:outputText value="#{f.dataNascimento}" />
+                    <h:outputText value="#{d.dataNascimento}" />
                 </p:column>
                 <p:column >
                     <p:commandButton value="Excluir" action="#{guiFuncionario.excluirFuncionario(funcionario)}" ajax="true" update="tblfuncionario" />
