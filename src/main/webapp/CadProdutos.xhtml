@@ -2,12 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastro de Produtos</title>
     </h:head>
     <h:body>
         <h:form>
+            <p:growl />
             <p:panelGrid columns="2"> 
                 <p:outputLabel value="CodProduto" />
                 <p:inputText value="#{guiProduto.produto.codProduto}"/>
@@ -16,11 +18,13 @@
                 <p:outputLabel value="Modelo" />
                 <p:inputText value="#{guiProduto.produto.modelo}"/>             
                 <p:outputLabel value="Categoria" />
-                <p:inputText value="#{guiProduto.produto.categoria}"/> 
+                <p:selectOneMenu value="#{guiProduto.produto.categoria}" >
+                    <f:selectItems value="#{guiProduto.categorias}" />
+                </p:selectOneMenu>
                 <p:outputLabel value="Estoque" />
                 <p:inputText value="#{guiProduto.produto.estoque}"/>
                 
-                <p:commandButton value="Gravar" action="#{guiProduto.gravarProduto()}"/>
+                <p:commandButton value="Gravar" action="#{guiProduto.gravarProduto()}" ajax="false"/>
                  
         </p:panelGrid> 
         </h:form>

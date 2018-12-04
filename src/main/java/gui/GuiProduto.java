@@ -10,9 +10,12 @@ import model.Pessoa;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.persistence.PersistenceContext;
+import model.Categoria;
 import model.Produto;
 
 /**
@@ -26,6 +29,7 @@ public class GuiProduto implements Serializable {
     private List<Produto> produtos;
     private Produto produto;
     private Boolean incluindo;
+    private List<Categoria> categorias;
 
     @EJB
     ProdutoDao daoproduto;
@@ -38,6 +42,8 @@ public class GuiProduto implements Serializable {
 
     public String iniciarListaProdutos() {
         produtos = daoproduto.getProdutos();
+        categorias = new ArrayList();
+        categorias.addAll(Arrays.asList(Categoria.values()));
         return "LstProdutos";
 
     }
@@ -83,6 +89,14 @@ public class GuiProduto implements Serializable {
 
     public void setIncluindo(Boolean incluindo) {
         this.incluindo = incluindo;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 
 }
