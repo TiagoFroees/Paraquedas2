@@ -7,7 +7,7 @@
         <title>Cadastro de Fornecedor</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="frmCad">
             <p:panelGrid columns="2">
                 <p:outputLabel value="Nome" />
                 <p:inputText value="#{guiFornecedor.fornecedor.nome}"/>
@@ -24,7 +24,8 @@
                 <p:outputLabel value="Contato" />
                 <p:inputText value="#{guiFornecedor.fornecedor.contato}"/>
 
-                <p:commandButton value="Gravar" action="#{guiFornecedor.gravarFornecedor()}"/>
+                <p:commandButton value="Gravar" action="#{guiFornecedor.gravarFornecedor()}"
+                                 update=":frmCad"/>
 
             </p:panelGrid> 
         </h:form>

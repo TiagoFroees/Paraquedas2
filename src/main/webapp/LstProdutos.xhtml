@@ -28,7 +28,7 @@
                     <h:outputText value="#{o.estoque}" />
                 </p:column>
                 <p:column >
-                    <p:commandButton value="Excluir" action="#{guiProduto.excluirProduto(produto)}" ajax="true" update="tblproduto" />  
+                    <p:commandButton value="Excluir" action="#{guiProduto.excluirProduto(o)}" ajax="true" update="tblproduto" />  
                 </p:column>
             </p:dataTable>
         </h:form>

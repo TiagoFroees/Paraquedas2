@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import model.Fornecedor;
+import org.primefaces.component.messages.Messages;
 
 /**
  *
@@ -48,13 +49,23 @@ public class GuiFornecedor implements Serializable {
     }
 
     public String gravarFornecedor() {
-        if (incluindo) {
+        if (incluindo == true) {
             daofornecedor.incluir(fornecedor);
+            System.out.println("Fornecedor criado!");
         } else {
             daofornecedor.alterar(fornecedor);
+            System.out.println("fornecedor editado!");
         }
+        fornecedor = new Fornecedor();
+        
         fornecedores = daofornecedor.getFornecedores();
         return "LstFornecedores";
+    }
+
+    public String alterarFornecedor(Fornecedor fornec) {
+        fornecedor = fornec;
+        incluindo = false;
+        return "CadFornecedores";
     }
 
     public String excluirFornecedor(Fornecedor fornecedor) {
@@ -64,6 +75,9 @@ public class GuiFornecedor implements Serializable {
     }
 
     public List<Fornecedor> getFornecedores() {
+        if(fornecedor == null){
+            fornecedor = new Fornecedor();
+        }
         return fornecedores;
 
     }
