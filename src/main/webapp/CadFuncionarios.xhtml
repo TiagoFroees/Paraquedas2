@@ -21,6 +21,7 @@
                 <p:inputText value="#{guiFuncionario.funcionario.email}"/>
                 <p:outputLabel value="DataNascimento" />
                 <p:inputText value="#{guiFuncionario.funcionario.dataNascimento}"/>
+                <p:inputMask mask="99/99/9999" value="#{guiCliente.cliente.dataNascimento}" converter="localDateConverter" />
 
                 <p:commandButton value="Gravar" action="#{guiFuncionario.gravarFuncionario()}"/>
 
