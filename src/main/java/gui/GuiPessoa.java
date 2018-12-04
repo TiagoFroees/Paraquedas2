@@ -57,14 +57,14 @@ public class GuiPessoa implements Serializable {
         return "LstPessoas";
     }
 
+    public List<Pessoa> getPessoas() {
+        return pessoas;
+    }
+
     public String excluirPessoa(Pessoa pessoa) {
         daopessoa.excluir(pessoa);
         pessoas = daopessoa.getPessoas();
         return "LstPessoas";
-    }
-
-    public List<Pessoa> getPessoas() {
-        return pessoas;
     }
 
     public Pessoa getPessoa() {
@@ -83,5 +83,4 @@ public class GuiPessoa implements Serializable {
         this.incluindo = incluindo;
     }
 
-    
 }
