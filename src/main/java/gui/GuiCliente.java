@@ -58,8 +58,14 @@ public class GuiCliente implements Serializable {
     }
 
     public String excluirCliente(Cliente cliente) {
-        daocliente.excluir(cliente);
-        clientes = daocliente.getClientes();
+        try {
+            daocliente.excluir(cliente);
+            clientes = daocliente.getClientes();
+            System.out.println("excluido com sucesso!");
+            
+        } catch (RuntimeException e) {
+            System.out.println("erro ao excluir "+e);
+        }
         return "LstClientes";
     }
 
@@ -86,7 +92,5 @@ public class GuiCliente implements Serializable {
     public void setIncluindo(Boolean incluindo) {
         this.incluindo = incluindo;
     }
-    
-    
 
 }

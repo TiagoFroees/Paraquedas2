@@ -34,8 +34,11 @@
                 <p:column headerText="Contato">
                     <h:outputText value="#{f.contato}" />
                 </p:column>
-                <p:commandButton value="Excluir" action="#{guiFornecedor.excluirFornecedor(fornecedor)}" ajax="true"  update="tblfornecedor"/>
-               
+                
+                 <p:column headerText="excluir">
+                    <p:commandButton value="Excluir" action="#{guiFornecedor.excluirFornecedor(fornecedor)}" ajax="true"  update="tblfornecedor"/>
+                </p:column>
+                               
             </p:dataTable>
         </h:form>
     </h:body>

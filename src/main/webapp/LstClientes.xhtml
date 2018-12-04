@@ -8,7 +8,9 @@
         <title>Clientes</title>
     </h:head>
     <h:body>
+        
         <h:form>
+             <p:growl />
             <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
             <p:dataTable var="c" value="#{guiCliente.clientes}" id= "tblcliente" >
@@ -33,7 +35,7 @@
                     </h:outputText>
                 </p:column>
                 <p:column >
-                    <p:commandButton value="Excluir" action="#{guiCliente.excluirCliente(cliente)}" ajax="true" update="tblcliente" />
+                    <p:commandButton value="Excluir" action="#{guiCliente.excluirCliente(c)}" ajax="true" update="tblcliente" />
                 </p:column>
             </p:dataTable>
         </h:form>
