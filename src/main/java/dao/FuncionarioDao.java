@@ -35,7 +35,7 @@ public class FuncionarioDao {
     }
 
     public List<Funcionario> getFuncionarios() {
-        Query q = em.createQuery("Select d from Pessoa d");
+        Query q = em.createQuery("Select d from Funcionario d");
         return q.getResultList();
     }
 
