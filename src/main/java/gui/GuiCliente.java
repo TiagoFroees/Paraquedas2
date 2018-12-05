@@ -12,6 +12,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import model.Fornecedor;
 
 /**
  *
@@ -50,27 +51,41 @@ public class GuiCliente implements Serializable {
     public String gravarCliente() {
         if (incluindo) {
             daocliente.incluir(cliente);
+            System.out.println("Cliente criado!");
         } else {
             daocliente.alterar(cliente);
+            System.out.println("Cliente editado!");
         }
+        cliente = new Cliente();
+
         clientes = daocliente.getClientes();
         return "LstClientes";
+    }
+
+    public String alterarCliente(Cliente clien) {
+        cliente = clien;
+        incluindo = false;
+        return "CadClientes";
     }
 
     public String excluirCliente(Cliente cliente) {
         try {
             daocliente.excluir(cliente);
             clientes = daocliente.getClientes();
-            System.out.println("excluido com sucesso!");
-            
+            System.out.println("Cliente excluido com sucesso!");
+
         } catch (RuntimeException e) {
-            System.out.println("erro ao excluir "+e);
+            System.out.println("erro ao excluir " + e);
         }
         return "LstClientes";
     }
 
     public List<Cliente> getClientes() {
+        if (cliente == null) {
+            cliente = new Cliente();
+        }
         return clientes;
+
     }
 
     public void setClientes(List<Cliente> clientes) {

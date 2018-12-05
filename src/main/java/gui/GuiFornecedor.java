@@ -54,10 +54,10 @@ public class GuiFornecedor implements Serializable {
             System.out.println("Fornecedor criado!");
         } else {
             daofornecedor.alterar(fornecedor);
-            System.out.println("fornecedor editado!");
+            System.out.println("Fornecedor editado!");
         }
         fornecedor = new Fornecedor();
-        
+
         fornecedores = daofornecedor.getFornecedores();
         return "LstFornecedores";
     }
@@ -69,13 +69,19 @@ public class GuiFornecedor implements Serializable {
     }
 
     public String excluirFornecedor(Fornecedor fornecedor) {
-        daofornecedor.excluir(fornecedor);
-        fornecedores = daofornecedor.getFornecedores();
+        try {
+            daofornecedor.excluir(fornecedor);
+            fornecedores = daofornecedor.getFornecedores();
+            System.out.println("Fornecedor excluido com sucesso!");
+
+        } catch (RuntimeException e) {
+            System.out.println("Erro ao excluir fornecedor " + e);
+        }
         return "LstFornecedores";
     }
 
     public List<Fornecedor> getFornecedores() {
-        if(fornecedor == null){
+        if (fornecedor == null) {
             fornecedor = new Fornecedor();
         }
         return fornecedores;

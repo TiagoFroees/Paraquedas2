@@ -34,8 +34,10 @@
                         <f:converter converterId="localDateConverter" />
                     </h:outputText>
                 </p:column>
-                <p:column >
+                
+                <p:column headerText="Opções" >
                     <p:commandButton value="Excluir" action="#{guiCliente.excluirCliente(c)}" ajax="true" update="tblcliente" />
+                    <p:commandButton value="Alterar" action="#{guiCliente.alterarCliente(c)}" ajax="true" />
                 </p:column>
             </p:dataTable>
         </h:form>

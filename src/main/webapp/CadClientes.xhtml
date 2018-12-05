@@ -8,7 +8,7 @@
         <title>Cadastro de Cliente</title>
     </h:head>
     <h:body>
-         <h:form>
+         <h:form id="frmCad">
              <p:panelGrid columns="2">
                 <p:outputLabel value="Nome" />
                 <p:inputText value="#{guiCliente.cliente.nome}"/>
@@ -22,7 +22,7 @@
                 <p:inputText value="#{guiCliente.cliente.email}"/>
                 <p:outputLabel value="DataNascimento" />
                 <p:inputMask mask="99/99/9999" value="#{guiCliente.cliente.dataNascimento}" converter="localDateConverter" />         
-                <p:commandButton value="Gravar" action="#{guiCliente.gravarCliente()}"/>
+                <p:commandButton value="Gravar" action="#{guiCliente.gravarCliente()}" update=":frmCad"/>
 
             </p:panelGrid> 
         </h:form>
