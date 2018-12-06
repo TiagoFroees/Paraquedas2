@@ -13,6 +13,7 @@
              <p:growl />
             <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
+            
             <p:dataTable var="c" value="#{guiCliente.clientes}" id= "tblcliente" >
                 <p:column headerText="Nome">
                     <h:outputText value="#{c.nome}" />
@@ -38,6 +39,7 @@
                 <p:column headerText="Opções" >
                     <p:commandButton value="Excluir" action="#{guiCliente.excluirCliente(c)}" ajax="true" update="tblcliente" />
                     <p:commandButton value="Alterar" action="#{guiCliente.alterarCliente(c)}" ajax="true" />
+             
                 </p:column>
             </p:dataTable>
         </h:form>

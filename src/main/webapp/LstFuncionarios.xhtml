@@ -11,8 +11,7 @@
         <h:form>
             <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}" ajax= "false"/>
             <p:commandButton value="Voltar" action="index" ajax="false" />
-            <br />
-            <br />
+
             <p:dataTable var="d" value="#{guiFuncionario.funcionarios}" id="tblfuncionario"> 
                 <p:column headerText="Nome">
                     <h:outputText value="#{d.nome}" />
@@ -38,6 +37,7 @@
                 <p:column headerText="Opções" >
                     <p:commandButton value="Excluir" action="#{guiFuncionario.excluirFuncionario(d)}" ajax="true" update="tblfuncionario" />
                     <p:commandButton value="Alterar" action="#{guiFuncionario.alterarFuncionario(d)}" ajax="true" />
+                
                 </p:column>
             </p:dataTable>
         </h:form>

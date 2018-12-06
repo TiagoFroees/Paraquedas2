@@ -23,6 +23,7 @@
                 <p:outputLabel value="DataNascimento" />
                 <p:inputMask mask="99/99/9999" value="#{guiCliente.cliente.dataNascimento}" converter="localDateConverter" />         
                 <p:commandButton value="Gravar" action="#{guiCliente.gravarCliente()}" update=":frmCad"/>
+                <p:commandButton value="Voltar" action="#{guiCliente.iniciarListaClientes()}" ajax="false" />
 
             </p:panelGrid> 
         </h:form>

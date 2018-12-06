@@ -23,6 +23,7 @@
                 <p:inputMask mask="99/99/9999" value="#{guiFuncionario.funcionario.dataNascimento}" converter="localDateConverter" />
 
                 <p:commandButton value="Gravar" action="#{guiFuncionario.gravarFuncionario()}" update=":frmCad"/>
+                <p:commandButton value="Voltar" action="#{guiFuncionario.iniciarListaFuncionarios()}" ajax="false" />
 
             </p:panelGrid> 
         </h:form>

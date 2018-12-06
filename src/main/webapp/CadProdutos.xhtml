@@ -25,6 +25,7 @@
                 <p:inputText value="#{guiProduto.produto.estoque}"/>
                 
                 <p:commandButton value="Gravar" action="#{guiProduto.gravarProduto()}"  update=":frmCad"/>
+                <p:commandButton value="Voltar" action="#{guiProduto.iniciarListaProdutos()}" ajax="false" />
                  
         </p:panelGrid> 
         </h:form>

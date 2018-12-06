@@ -25,6 +25,7 @@
                 <p:inputText value="#{guiFornecedor.fornecedor.contato}"/>
 
                 <p:commandButton value="Gravar" action="#{guiFornecedor.gravarFornecedor()}" update=":frmCad"/>
+                <p:commandButton value="Voltar" action="#{guiFornecedor.iniciarListaFornecedores()}" ajax="false" />
                 
             </p:panelGrid> 
         </h:form>
