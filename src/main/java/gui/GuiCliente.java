@@ -12,7 +12,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import model.Fornecedor;
 
 /**
  *
@@ -49,7 +48,7 @@ public class GuiCliente implements Serializable {
     }
 
     public String gravarCliente() {
-        if (incluindo) {
+        if (incluindo == true) {
             daocliente.incluir(cliente);
             System.out.println("Cliente criado!");
         } else {

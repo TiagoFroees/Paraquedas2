@@ -12,6 +12,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import model.Fornecedor;
 
 /**
  *
@@ -48,23 +49,43 @@ public class GuiFuncionario implements Serializable {
     }
 
     public String gravarFuncionario() {
-        if (incluindo) {
+        if (incluindo == true) {
             daofuncionario.incluir(funcionario);
+            System.out.println("Funcionario criado!");
         } else {
             daofuncionario.alterar(funcionario);
+            System.out.println("Funcionario editado!");
         }
+        funcionario = new Funcionario();
+
         funcionarios = daofuncionario.getFuncionarios();
         return "LstFuncionarios";
     }
 
+    public String alterarFuncionario(Funcionario funcio) {
+        funcionario = funcio;
+        incluindo = false;
+        return "CadFuncionarios";
+    }
+
     public String excluirFuncionario(Funcionario funcionario) {
-        daofuncionario.excluir(funcionario);
-        funcionarios = daofuncionario.getFuncionarios();
+        try {
+            daofuncionario.excluir(funcionario);
+            funcionarios = daofuncionario.getFuncionarios();
+            System.out.println("Funcionario excluido com sucesso!");
+
+        } catch (RuntimeException e) {
+            System.out.println("Erro ao excluir funcionario " + e);
+        }
         return "LstFuncionarios";
     }
 
     public List<Funcionario> getFuncionarios() {
+        if (funcionario == null) {
+            funcionario = new Funcionario();
+        }
         return funcionarios;
+
     }
 
     public Funcionario getFuncionario() {
@@ -86,7 +107,5 @@ public class GuiFuncionario implements Serializable {
     public void setFuncionarios(List<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
-    
-    
 
 }

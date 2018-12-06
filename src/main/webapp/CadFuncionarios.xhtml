@@ -7,7 +7,7 @@
         <title>Cadastro de Funcionarios</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="frmCad">
             <p:panelGrid columns="2">
                 <p:outputLabel value="Nome" />
                 <p:inputText value="#{guiFuncionario.funcionario.nome}"/>
@@ -22,7 +22,7 @@
                 <p:outputLabel value="DataNascimento" />
                 <p:inputMask mask="99/99/9999" value="#{guiFuncionario.funcionario.dataNascimento}" converter="localDateConverter" />
 
-                <p:commandButton value="Gravar" action="#{guiFuncionario.gravarFuncionario()}"/>
+                <p:commandButton value="Gravar" action="#{guiFuncionario.gravarFuncionario()}" update=":frmCad"/>
 
             </p:panelGrid> 
         </h:form>
