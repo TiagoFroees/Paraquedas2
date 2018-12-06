@@ -8,7 +8,7 @@
         <title>Cadastro de Produtos</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="frmCad">
             <p:growl />
             <p:panelGrid columns="2"> 
                 <p:outputLabel value="CodProduto" />
@@ -24,7 +24,7 @@
                 <p:outputLabel value="Estoque" />
                 <p:inputText value="#{guiProduto.produto.estoque}"/>
                 
-                <p:commandButton value="Gravar" action="#{guiProduto.gravarProduto()}" ajax="false"/>
+                <p:commandButton value="Gravar" action="#{guiProduto.gravarProduto()}"  update=":frmCad"/>
                  
         </p:panelGrid> 
         </h:form>

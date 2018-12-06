@@ -6,7 +6,6 @@
 package gui;
 
 import dao.ProdutoDao;
-import model.Pessoa;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -14,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.persistence.PersistenceContext;
 import model.Categoria;
+import model.Fornecedor;
 import model.Produto;
 
 /**
@@ -56,23 +55,43 @@ public class GuiProduto implements Serializable {
     }
 
     public String gravarProduto() {
-        if (incluindo) {
+        if (incluindo == true) {
             daoproduto.incluir(produto);
+            System.out.println("Produto criado!");
         } else {
             daoproduto.alterar(produto);
+            System.out.println("Produto editado!");
         }
+        produto = new Produto();
+
         produtos = daoproduto.getProdutos();
         return "LstProdutos";
     }
 
+    public String alterarProduto(Produto prod) {
+        produto = prod;
+        incluindo = false;
+        return "CadProdutos";
+    }
+
     public String excluirProduto(Produto produto) {
-        daoproduto.excluir(produto);
-        produtos = daoproduto.getProdutos();
+        try {
+            daoproduto.excluir(produto);
+            produtos = daoproduto.getProdutos();
+            System.out.println("Produto excluido com sucesso!");
+
+        } catch (RuntimeException e) {
+            System.out.println("Erro ao excluir produto " + e);
+        }
         return "LstProdutos";
     }
 
     public List<Produto> getProdutos() {
+        if (produto == null) {
+            produto = new Produto();
+        }
         return produtos;
+
     }
 
     public Produto getProduto() {
