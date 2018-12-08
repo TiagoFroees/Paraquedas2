@@ -33,7 +33,6 @@ public class GuiCliente implements Serializable {
      */
     public GuiCliente() {
     }
-
     public String iniciarListaClientes() {
         clientes = daocliente.getClientes();
         return "LstClientes";
