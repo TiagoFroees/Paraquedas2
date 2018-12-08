@@ -7,17 +7,18 @@
         <title>Sistema Paraquedas</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:commandButton value="Fornecedores" action="#{guiFornecedor.iniciarListaFornecedores()}"/> 
+        <h:form id="formLogin">
+            <h1><h:outputText id="bemVindo" value="Bem vindo(a) ao Sistema Paraquedas."/></h1>
+            <h:panelGrid id="gridLoginSenha" columns="2">
+                <h:outputText id="loginLabel" value="Login:"/>
+                <h:inputText id="login" value= "#{guiLogin.usuario.login}"/>
 
-            <h:commandButton value="Clientes" action="#{guiCliente.iniciarListaClientes()}"/>
+                <h:outputText id="senhaLabel" value="Senha:"/>
+                <h:inputSecret id="senha" value= "#{guiLogin.usuario.senha}"/>
+            </h:panelGrid>
+            <h:commandButton id="botao" value="Entrar" action="#{guiLogin.doEfetuarLogin()}"/>
+        </h:form>
 
-            <h:commandButton value="Funcionarios" action="#{guiFuncionario.iniciarListaFuncionarios()}"/>
-
-            <h:commandButton value="Produtos" action="#{guiProduto.iniciarListaProdutos()}"/>
-
-
-        </h:form>    
     </h:body>
 </html>
 
