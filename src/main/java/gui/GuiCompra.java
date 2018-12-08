@@ -5,9 +5,12 @@
  */
 package gui;
 
+import dao.CompraDao;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
+import model.Compra;
 
 /**
  *
@@ -16,11 +19,22 @@ import java.io.Serializable;
 @Named(value = "guiCompra")
 @SessionScoped
 public class GuiCompra implements Serializable {
-
-    /**
-     * Creates a new instance of GuiCompra
-     */
-    public GuiCompra() {
-    }
     
+    @EJB
+    CompraDao daoCompra;
+    
+    
+    private Compra compra;
+    
+
+    public GuiCompra() {
+      
+    }
+
+private String iniciar(){
+    compra = new Compra();
+    
+    return"CadCompra";
+}
+
 }
