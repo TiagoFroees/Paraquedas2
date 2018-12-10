@@ -43,7 +43,7 @@ public class GuiCompra implements Serializable {
 
     private String nomeProduto;
     private String nomeFornecedor;
-    
+
     private Integer quantidade;
     private Float valorCompra;
 
@@ -60,6 +60,98 @@ public class GuiCompra implements Serializable {
         compraCriada = false;
 
         return "CadCompra";
+    }
+
+    private Fornecedor getFornecedorSelecionado() {
+        for (Fornecedor f : lstFornecedores) {
+            if (f.toString().equals(nomeFornecedor)) {
+                return f;
+            }
+        }
+        return null;
+    }
+
+    private Produto getProdutoSelecionado() {
+        for (Produto p : lstProdutos) {
+            if (p.toString().equals(nomeProduto)) {
+                return p;
+            }
+        }
+
+        return null;
+    }
+
+
+    public List<Produto> getLstProdutos() {
+        return lstProdutos;
+    }
+
+    public void setLstProdutos(List<Produto> lstProdutos) {
+        this.lstProdutos = lstProdutos;
+    }
+
+    public List<Fornecedor> getLstFornecedores() {
+        return lstFornecedores;
+    }
+
+    public void setLstFornecedores(List<Fornecedor> lstFornecedores) {
+        this.lstFornecedores = lstFornecedores;
+    }
+
+    public List<ItemCompra> getLstItensCompra() {
+        return lstItensCompra;
+    }
+
+    public void setLstItensCompra(List<ItemCompra> lstItensCompra) {
+        this.lstItensCompra = lstItensCompra;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Boolean getCompraCriada() {
+        return compraCriada;
+    }
+
+    public void setCompraCriada(Boolean compraCriada) {
+        this.compraCriada = compraCriada;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public String getNomeFornecedor() {
+        return nomeFornecedor;
+    }
+
+    public void setNomeFornecedor(String nomeFornecedor) {
+        this.nomeFornecedor = nomeFornecedor;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Float getValorCompra() {
+        return valorCompra;
+    }
+
+    public void setValorCompra(Float valorCompra) {
+        this.valorCompra = valorCompra;
     }
 
 }
