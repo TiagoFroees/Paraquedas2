@@ -24,10 +24,27 @@ public class ItemCompra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    private Integer quantidade;
     private Float valorCompra;
     
     @ManyToOne
     private Estoque estoque;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
     public Float getValorCompra() {
         return valorCompra;
@@ -43,15 +60,6 @@ public class ItemCompra implements Serializable {
 
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
-    }
-    
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
@@ -75,6 +83,9 @@ public class ItemCompra implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
+        if (!Objects.equals(this.quantidade, other.quantidade)) {
+            return false;
+        }
         if (!Objects.equals(this.valorCompra, other.valorCompra)) {
             return false;
         }
@@ -84,13 +95,10 @@ public class ItemCompra implements Serializable {
         return true;
     }
 
-
-
     @Override
     public String toString() {
-        return "ItemCompra{" + "id=" + id + ", valorCompra=" + valorCompra + ", estoque=" + estoque + '}';
+        return "ItemCompra{" + "id=" + id + ", quantidade=" + quantidade + ", valorCompra=" + valorCompra + ", estoque=" + estoque + '}';
     }
-
 
     
 }

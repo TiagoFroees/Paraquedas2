@@ -44,7 +44,7 @@ public class GuiCompra implements Serializable {
     private String nomeProduto;
     private String nomeFornecedor;
     
-   // private Integer quantidade;
+    private Integer quantidade;
     private Float valorCompra;
 
     public GuiCompra() {
