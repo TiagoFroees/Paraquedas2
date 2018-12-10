@@ -81,6 +81,7 @@ public class GuiCompra implements Serializable {
         return null;
     }
 
+    
 
     public List<Produto> getLstProdutos() {
         return lstProdutos;
