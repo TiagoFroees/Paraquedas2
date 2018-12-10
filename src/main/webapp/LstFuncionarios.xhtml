@@ -10,7 +10,7 @@
     <h:body>
         <h:form>
             <p:commandButton value="incluir" action="#{guiFuncionario.novoFuncionario()}" ajax= "false"/>
-            <p:commandButton value="Voltar" action="index" ajax="false" />
+            <p:commandButton value="Voltar" action="principal" ajax="false" />
 
             <p:dataTable var="d" value="#{guiFuncionario.funcionarios}" id="tblfuncionario"> 
                 <p:column headerText="Nome">

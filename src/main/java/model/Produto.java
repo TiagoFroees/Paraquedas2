@@ -20,16 +20,17 @@ import javax.persistence.Id;
  */
 @Entity
 public class Produto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String nome;
     private String modelo;
     private Integer codProduto;
     private Integer estoque;
-    
+
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
@@ -72,8 +73,6 @@ public class Produto implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
-    
 
     public Long getId() {
         return id;
@@ -127,6 +126,12 @@ public class Produto implements Serializable {
         return "Produto{" + "id=" + id + ", nome=" + nome + ", modelo=" + modelo + ", codProduto=" + codProduto + ", estoque=" + estoque + ", categoria=" + categoria + '}';
     }
 
+    public void AdicionarEstoque(Integer quantidade) {
+        this.estoque += quantidade;
+    }
 
-    
+    public void RemoverEstoque(Integer quantidade) {
+        this.estoque += quantidade;
+    }
+
 }

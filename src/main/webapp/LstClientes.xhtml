@@ -12,7 +12,7 @@
         <h:form>
              <p:growl />
             <p:commandButton value="incluir" action="#{guiCliente.novoCliente()}" ajax= "false"/>
-            <p:commandButton value="Voltar" action="index" ajax="false" />
+            <p:commandButton value="Voltar" action="principal" ajax="false" />
             
             <p:dataTable var="c" value="#{guiCliente.clientes}" id= "tblcliente" >
                 <p:column headerText="Nome">
