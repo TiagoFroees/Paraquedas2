@@ -24,19 +24,20 @@ public class ItemVenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private Float valor;
+    private Float valorVenda;
     private Integer quantidade;
     
     @ManyToOne
     private Estoque estoque;
 
-    public Float getValor() {
-        return valor;
+    public Float getValorVenda() {
+        return valorVenda;
     }
 
-    public void setValor(Float valor) {
-        this.valor = valor;
+    public void setValorVenda(Float valorVenda) {
+        this.valorVenda = valorVenda;
     }
+
 
     public Integer getQuantidade() {
         return quantidade;
@@ -65,7 +66,7 @@ public class ItemVenda implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 5;
         return hash;
     }
 
@@ -84,7 +85,7 @@ public class ItemVenda implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.valor, other.valor)) {
+        if (!Objects.equals(this.valorVenda, other.valorVenda)) {
             return false;
         }
         if (!Objects.equals(this.quantidade, other.quantidade)) {
@@ -98,8 +99,9 @@ public class ItemVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "id=" + id + ", valor=" + valor + ", quantidade=" + quantidade + ", estoque=" + estoque + '}';
+        return "ItemVenda{" + "id=" + id + ", valorVenda=" + valorVenda + ", quantidade=" + quantidade + ", estoque=" + estoque + '}';
     }
+
 
     
 }
