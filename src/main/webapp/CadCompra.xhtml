@@ -49,10 +49,10 @@
                     <p:outputLabel value="#{c.quantidade}" />
                 </p:column>
                 <p:column headerText="Preço Unitário">
-                    <p:outputLabel value="#{c.precoCompra}" />
+                    <p:outputLabel value="#{c.valorCompra}" />
                 </p:column>
                 <p:column headerText="Preço Total">
-                    <p:outputLabel value="#{c.precoCompra * c.quantidade}" >
+                    <p:outputLabel value="#{c.valorCompra * c.quantidade}" >
                         <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
                     </p:outputLabel>
                 </p:column>

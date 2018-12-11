@@ -50,8 +50,9 @@ public class GuiCompra implements Serializable {
 
     public GuiCompra() {
     }
-
-    private String iniciar() {
+    
+    private String iniciar(){
+        
         compra = new Compra();
 
         lstFornecedores = daoFornecedor.getFornecedores();
