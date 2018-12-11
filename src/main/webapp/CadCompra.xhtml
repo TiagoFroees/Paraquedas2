@@ -1,12 +1,65 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Compra</title>
+        <title>Comprar</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Fornecedor" />
+                <p:selectOneMenu value="#{guiCompra.nomeFornecedor}" disabled="#{guiCompra.compraCriada}">
+                    <f:selectItems value="#{guiCompra.lstFornecedores}" />
+                </p:selectOneMenu>
+                <p:outputLabel value="Data" />
+                <p:calendar value="#{guiCompra.compra.dataCompra}" disabled="#{guiCompra.compraCriada}" pattern="dd/MM/yyyy">
+                    <f:converter converterId="localDateFacesConverter" />
+                </p:calendar>
+                <p:outputLabel value="Valor Total" />
+                <p:inputText value="#{guiCompra.compra.valorTotal}" disabled="true">
+                    <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                </p:inputText>
+            </p:panelGrid>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Produto" />
+                <p:selectOneMenu value="#{guiCompra.nomeProduto}" >
+                    <f:selectItems value="#{guiCompra.lstProdutos}" />
+                </p:selectOneMenu>
+                <p:outputLabel value="Quantidade" />
+                <p:inputText value="#{guiCompra.quantidade}" >
+                    <f:convertNumber integerOnly="true"/>
+                </p:inputText>
+                <p:outputLabel value="Preço" />
+                <p:inputText value="#{guiCompra.valorCompra}" >
+                    <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                </p:inputText>
+            </p:panelGrid>
+
+            <p:commandButton value="Incluir" action="#{guiCompra.adicionarProduto()}" ajax="false" />
+            <br />
+            <br />
+            <p:dataTable value="#{guiCompra.lstItensCompra}" var="c" id="tabela">
+                <p:column headerText="Produto">
+                    <p:outputLabel value="#{c.produto.nome}" />
+                </p:column>
+                <p:column headerText="Quantidade">
+                    <p:outputLabel value="#{c.quantidade}" />
+                </p:column>
+                <p:column headerText="Preço Unitário">
+                    <p:outputLabel value="#{c.precoCompra}" />
+                </p:column>
+                <p:column headerText="Preço Total">
+                    <p:outputLabel value="#{c.precoCompra * c.quantidade}" >
+                        <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+                    </p:outputLabel>
+                </p:column>
+            </p:dataTable>
+
+
+        </h:form>
     </h:body>
 </html>
 
