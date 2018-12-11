@@ -18,24 +18,33 @@ import model.Produto;
  */
 @Stateless
 public class ProdutoDao {
-    
-    
+
     @PersistenceContext
     EntityManager em;
 
     public void incluir(Produto produto) {
         em.persist(produto);
     }
+
     public void alterar(Produto produto) {
         em.merge(produto);
     }
+
     public void excluir(Produto produto) {
         em.remove(em.merge(produto));
     }
 
+    public void gravar(Produto object, boolean edit) {
+        if (edit == false) {
+            em.persist(object);
+        } else {
+            em.merge(object);
+        }
+    }
+
     public List<Produto> getProdutos() {
-        Query  q = em.createQuery("Select o from Produto o");
+        Query q = em.createQuery("Select o from Produto o");
         return q.getResultList();
     }
-    
+
 }

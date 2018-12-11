@@ -128,11 +128,11 @@ public class Produto implements Serializable {
         return "Produto{" + "id=" + id + ", nome=" + nome + ", modelo=" + modelo + ", codProduto=" + codProduto + ", estoque=" + estoque + ", categoria=" + categoria + '}';
     }
 
-    public void AdicionarEstoque(Integer quantidade) {
+    public void comprarProduto(Integer quantidade) {
         this.estoque += quantidade;
     }
 
-    public void RemoverEstoque(Integer quantidade) {
+    public void venderProduto(Integer quantidade) {
         this.estoque += quantidade;
     }
 
