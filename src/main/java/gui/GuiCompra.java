@@ -11,6 +11,7 @@ import dao.ProdutoDao;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.EJB;
 import model.Compra;
@@ -45,7 +46,7 @@ public class GuiCompra implements Serializable {
     private String nomeFornecedor;
 
     private Integer quantidade;
-    private Float valorCompra;
+    private BigDecimal valorCompra;
 
     public GuiCompra() {
     }
@@ -79,7 +80,15 @@ public class GuiCompra implements Serializable {
 
         return null;
     }
- 
+
+    public String adicionarProduto() {
+        compra.setFornecedor(getFornecedorSelecionado());
+        daoCompra.comprar(compra, getProdutoSelecionado(), quantidade, valorCompra);
+        lstItensCompra = daoCompra.getItens(compra);
+        compraCriada = true;
+        return null;
+    }
+
     public List<Produto> getLstProdutos() {
         return lstProdutos;
     }
@@ -144,12 +153,14 @@ public class GuiCompra implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Float getValorCompra() {
+    public BigDecimal getValorCompra() {
         return valorCompra;
     }
 
-    public void setValorCompra(Float valorCompra) {
+    public void setValorCompra(BigDecimal valorCompra) {
         this.valorCompra = valorCompra;
     }
+
+
 
 }
