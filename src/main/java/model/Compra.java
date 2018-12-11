@@ -21,15 +21,15 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Compra implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long id;
-    
+    private Long id;
+
     private LocalDate dataCompra;
     private BigDecimal valorTotal;
-    
-            
+
     @ManyToOne
     private Fornecedor fornecedor;
 
@@ -102,7 +102,16 @@ public class Compra implements Serializable {
     public String toString() {
         return "Compra{" + "id=" + id + ", dataCompra=" + dataCompra + ", valorTotal=" + valorTotal + ", fornecedor=" + fornecedor + '}';
     }
-    
-    
-    
+
+    public void atualizarTotal(Integer quantidade, BigDecimal precoCompra) {
+        if (this.valorTotal == null) {
+            this.valorTotal = new BigDecimal(0.0);
+        }
+
+        double x = quantidade * precoCompra.doubleValue();
+
+        this.valorTotal = new BigDecimal(x + this.valorTotal.doubleValue());
+
+    }
+
 }

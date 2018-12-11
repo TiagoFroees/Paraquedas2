@@ -48,7 +48,6 @@ public class GuiCompra implements Serializable {
     private Float valorCompra;
 
     public GuiCompra() {
-
     }
 
     private String iniciar() {
@@ -80,9 +79,7 @@ public class GuiCompra implements Serializable {
 
         return null;
     }
-
-    
-
+ 
     public List<Produto> getLstProdutos() {
         return lstProdutos;
     }
