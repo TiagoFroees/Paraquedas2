@@ -14,10 +14,10 @@
                 <p:selectOneMenu value="#{guiCompra.nomeFornecedor}" disabled="#{guiCompra.compraCriada}">
                     <f:selectItems value="#{guiCompra.lstFornecedores}" />
                 </p:selectOneMenu>
+                
                 <p:outputLabel value="Data" />
-                <p:calendar value="#{guiCompra.compra.dataCompra}" disabled="#{guiCompra.compraCriada}" pattern="dd/MM/yyyy">
-                    <f:converter converterId="localDateFacesConverter" />
-                </p:calendar>
+                <p:inputMask mask="99/99/9999" value="#{guiCompra.compra.dataCompra}" converter="localDateConverter"/>
+                   
                 <p:outputLabel value="Valor Total" />
                 <p:inputText value="#{guiCompra.compra.valorTotal}" disabled="true">
                     <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
