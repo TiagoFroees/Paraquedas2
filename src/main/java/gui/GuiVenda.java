@@ -51,7 +51,7 @@ public class GuiVenda implements Serializable {
     public GuiVenda() {
     }
 
-    private String iniciar() {
+    public String iniciar() {
         venda = new Venda();
 
         lstClientes = daoCliente.getClientes();

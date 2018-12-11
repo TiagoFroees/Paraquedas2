@@ -51,7 +51,7 @@ public class GuiCompra implements Serializable {
     public GuiCompra() {
     }
     
-    private String iniciar(){
+    public String iniciar(){
     
         compra = new Compra();
 
@@ -59,7 +59,7 @@ public class GuiCompra implements Serializable {
         lstProdutos = daoProduto.getProdutos();
 
         compraCriada = false;
-
+    
         return "CadCompra";
     }
 
