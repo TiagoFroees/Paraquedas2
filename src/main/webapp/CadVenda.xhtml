@@ -39,6 +39,8 @@
             </p:panelGrid>
 
             <p:commandButton value="Incluir" action="#{guiVenda.adicionarProduto()}" ajax="false" />
+            <p:commandButton value="Voltar" action="principal" ajax="false" />
+            
             <br />
             <br />
             <p:dataTable value="#{guiVenda.lstItensVenda}" var="v" id="tabela">
