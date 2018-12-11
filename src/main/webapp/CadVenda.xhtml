@@ -1,12 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Venda</title>
+        <title>Vender</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Cliente" />
+                <p:selectOneMenu value="#{guiVenda.nomeCliente}" disabled="#{guiVenda.vendaCriada}">
+                    <f:selectItems value="#{guiVenda.lstClientes}" />
+                </p:selectOneMenu>
+                <p:outputLabel value="Data" />
+                <p:calendar value="#{guiVenda.venda.dataVenda}" disabled="#{guiVenda.vendaCriada}" pattern="dd/MM/yyyy">
+                    <f:converter converterId="localDateFacesConverter" />
+                </p:calendar>
+                <p:outputLabel value="Valor Total" />
+                <p:inputText value="#{guiVenda.venda.valorTotal}" disabled="true">
+                    <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                </p:inputText>
+            </p:panelGrid>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Produto" />
+                <p:selectOneMenu value="#{guiVenda.nomeProduto}" >
+                    <f:selectItems value="#{guiVenda.lstProdutos}" />
+                </p:selectOneMenu>
+                <p:outputLabel value="Quantidade" />
+                <p:inputText value="#{guiVenda.quantidade}" >
+                    <f:convertNumber integerOnly="true"/>
+                </p:inputText>
+                <p:outputLabel value="Preço" />
+                <p:inputText value="#{guiVenda.valorVenda}" >
+                    <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                </p:inputText>
+            </p:panelGrid>
+
+            <p:commandButton value="Incluir" action="#{guiVenda.adicionarProduto()}" ajax="false" />
+            <br />
+            <br />
+            <p:dataTable value="#{guiVenda.lstItensVenda}" var="v" id="tabela">
+                <p:column headerText="Produto">
+                    <p:outputLabel value="#{v.produto.nome}" />
+                </p:column>
+                <p:column headerText="Quantidade">
+                    <p:outputLabel value="#{v.quantidade}" />
+                </p:column>
+                <p:column headerText="Preço Unitário">
+                    <p:outputLabel value="#{v.valorVenda}" />
+                </p:column>
+                <p:column headerText="Preço Total">
+                    <p:outputLabel value="#{v.valorVenda * v.quantidade}" >
+                        <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+                    </p:outputLabel>
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </h:body>
 </html>
 
