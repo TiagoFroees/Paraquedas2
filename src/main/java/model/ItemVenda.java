@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,25 +20,27 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class ItemVenda implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private Float valorVenda;
+
     private Integer quantidade;
+    private BigDecimal valorVenda;
     
     @ManyToOne
-    private Estoque estoque;
+    private Venda venda;
+    @ManyToOne
+    private Produto produto;
 
-    public Float getValorVenda() {
-        return valorVenda;
+    public Long getId() {
+        return id;
     }
 
-    public void setValorVenda(Float valorVenda) {
-        this.valorVenda = valorVenda;
+    public void setId(Long id) {
+        this.id = id;
     }
-
 
     public Integer getQuantidade() {
         return quantidade;
@@ -47,21 +50,28 @@ public class ItemVenda implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
+    public BigDecimal getValorVenda() {
+        return valorVenda;
     }
 
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-    
-    
-    public Long getId() {
-        return id;
+    public void setValorVenda(BigDecimal valorVenda) {
+        this.valorVenda = valorVenda;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     @Override
@@ -85,13 +95,16 @@ public class ItemVenda implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.valorVenda, other.valorVenda)) {
-            return false;
-        }
         if (!Objects.equals(this.quantidade, other.quantidade)) {
             return false;
         }
-        if (!Objects.equals(this.estoque, other.estoque)) {
+        if (!Objects.equals(this.valorVenda, other.valorVenda)) {
+            return false;
+        }
+        if (!Objects.equals(this.venda, other.venda)) {
+            return false;
+        }
+        if (!Objects.equals(this.produto, other.produto)) {
             return false;
         }
         return true;
@@ -99,9 +112,11 @@ public class ItemVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "id=" + id + ", valorVenda=" + valorVenda + ", quantidade=" + quantidade + ", estoque=" + estoque + '}';
+        return "ItemVenda{" + "id=" + id + ", quantidade=" + quantidade + ", valorVenda=" + valorVenda + ", venda=" + venda + ", produto=" + produto + '}';
     }
-
-
     
+    
+
+
+
 }

@@ -6,15 +6,14 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -27,38 +26,35 @@ public class Compra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
     
-    private LocalDate data;
-    private float valorTotal;
+    private LocalDate dataCompra;
+    private BigDecimal valorTotal;
     
-    @OneToMany
-    private List<ItemCompra> compras;
-            
             
     @ManyToOne
     private Fornecedor fornecedor;
 
-    public LocalDate getData() {
-        return data;
+    public Long getId() {
+        return id;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public float getValorTotal() {
+    public LocalDate getDataCompra() {
+        return dataCompra;
+    }
+
+    public void setDataCompra(LocalDate dataCompra) {
+        this.dataCompra = dataCompra;
+    }
+
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(float valorTotal) {
+    public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    public List<ItemCompra> getCompras() {
-        return compras;
-    }
-
-    public void setCompras(List<ItemCompra> compras) {
-        this.compras = compras;
     }
 
     public Fornecedor getFornecedor() {
@@ -67,16 +63,6 @@ public class Compra implements Serializable {
 
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
-    }
-    
-    
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
@@ -97,16 +83,13 @@ public class Compra implements Serializable {
             return false;
         }
         final Compra other = (Compra) obj;
-        if (Float.floatToIntBits(this.valorTotal) != Float.floatToIntBits(other.valorTotal)) {
-            return false;
-        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.data, other.data)) {
+        if (!Objects.equals(this.dataCompra, other.dataCompra)) {
             return false;
         }
-        if (!Objects.equals(this.compras, other.compras)) {
+        if (!Objects.equals(this.valorTotal, other.valorTotal)) {
             return false;
         }
         if (!Objects.equals(this.fornecedor, other.fornecedor)) {
@@ -117,8 +100,9 @@ public class Compra implements Serializable {
 
     @Override
     public String toString() {
-        return "Compra{" + "id=" + id + ", data=" + data + ", valorTotal=" + valorTotal + ", compras=" + compras + ", fornecedor=" + fornecedor + '}';
+        return "Compra{" + "id=" + id + ", dataCompra=" + dataCompra + ", valorTotal=" + valorTotal + ", fornecedor=" + fornecedor + '}';
     }
-
+    
+    
     
 }

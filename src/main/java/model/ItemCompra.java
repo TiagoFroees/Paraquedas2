@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,10 +26,12 @@ public class ItemCompra implements Serializable {
     private Long id;
     
     private Integer quantidade;
-    private Float valorCompra;
+    private BigDecimal valorCompra;
     
     @ManyToOne
-    private Estoque estoque;
+    private Compra compra;
+    @ManyToOne
+    private Produto produto;
 
     public Long getId() {
         return id;
@@ -46,20 +49,28 @@ public class ItemCompra implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Float getValorCompra() {
+    public BigDecimal getValorCompra() {
         return valorCompra;
     }
 
-    public void setValorCompra(Float valorCompra) {
+    public void setValorCompra(BigDecimal valorCompra) {
         this.valorCompra = valorCompra;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
+    public Compra getCompra() {
+        return compra;
     }
 
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     @Override
@@ -89,7 +100,10 @@ public class ItemCompra implements Serializable {
         if (!Objects.equals(this.valorCompra, other.valorCompra)) {
             return false;
         }
-        if (!Objects.equals(this.estoque, other.estoque)) {
+        if (!Objects.equals(this.compra, other.compra)) {
+            return false;
+        }
+        if (!Objects.equals(this.produto, other.produto)) {
             return false;
         }
         return true;
@@ -97,8 +111,8 @@ public class ItemCompra implements Serializable {
 
     @Override
     public String toString() {
-        return "ItemCompra{" + "id=" + id + ", quantidade=" + quantidade + ", valorCompra=" + valorCompra + ", estoque=" + estoque + '}';
+        return "ItemCompra{" + "id=" + id + ", quantidade=" + quantidade + ", valorCompra=" + valorCompra + ", compra=" + compra + ", produto=" + produto + '}';
     }
-
+    
     
 }

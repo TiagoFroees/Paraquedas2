@@ -29,7 +29,8 @@ public class Produto implements Serializable {
     private String nome;
     private String modelo;
     private Integer codProduto;
-    private Integer estoque;
+    private Integer estoque = 0;
+  
 
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
@@ -82,6 +83,7 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 7;

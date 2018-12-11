@@ -6,15 +6,14 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -27,9 +26,8 @@ public class Venda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private LocalDate data;
-    private LocalDate hora;
-    private Float valorTotal;
+    private LocalDate dataVenda;
+    private BigDecimal valorTotal;
     
     @ManyToOne
     private Pagamento pagamento;
@@ -37,31 +35,28 @@ public class Venda implements Serializable {
     private Cliente cliente;
     @ManyToOne
     private Funcionario funcionario;
-    
-    @OneToMany
-    private List<ItemVenda>itemvendas;
 
-    public LocalDate getData() {
-        return data;
+    public Long getId() {
+        return id;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public LocalDate getHora() {
-        return hora;
+    public LocalDate getDataVenda() {
+        return dataVenda;
     }
 
-    public void setHora(LocalDate hora) {
-        this.hora = hora;
+    public void setDataVenda(LocalDate dataVenda) {
+        this.dataVenda = dataVenda;
     }
 
-    public Float getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(Float valorTotal) {
+    public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
     }
 
@@ -89,22 +84,6 @@ public class Venda implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public List<ItemVenda> getItemvendas() {
-        return itemvendas;
-    }
-
-    public void setItemvendas(List<ItemVenda> itemvendas) {
-        this.itemvendas = itemvendas;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -126,10 +105,7 @@ public class Venda implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.data, other.data)) {
-            return false;
-        }
-        if (!Objects.equals(this.hora, other.hora)) {
+        if (!Objects.equals(this.dataVenda, other.dataVenda)) {
             return false;
         }
         if (!Objects.equals(this.valorTotal, other.valorTotal)) {
@@ -144,16 +120,14 @@ public class Venda implements Serializable {
         if (!Objects.equals(this.funcionario, other.funcionario)) {
             return false;
         }
-        if (!Objects.equals(this.itemvendas, other.itemvendas)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Venda{" + "id=" + id + ", data=" + data + ", hora=" + hora + ", valorTotal=" + valorTotal + ", pagamento=" + pagamento + ", cliente=" + cliente + ", funcionario=" + funcionario + ", itemvendas=" + itemvendas + '}';
+        return "Venda{" + "id=" + id + ", dataVenda=" + dataVenda + ", valorTotal=" + valorTotal + ", pagamento=" + pagamento + ", cliente=" + cliente + ", funcionario=" + funcionario + '}';
     }
-
+    
+   
 
 }
