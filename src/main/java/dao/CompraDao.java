@@ -51,6 +51,8 @@ public class CompraDao {
         if (compra.getId() == null) {
             this.gravar(compra, false);
         }
+        
+        
         ItemCompra ic = new ItemCompra();
         ic.setCompra(compra);
         ic.setValorCompra(valorCompra);

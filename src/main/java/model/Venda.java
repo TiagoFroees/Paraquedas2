@@ -128,6 +128,15 @@ public class Venda implements Serializable {
         return "Venda{" + "id=" + id + ", dataVenda=" + dataVenda + ", valorTotal=" + valorTotal + ", pagamento=" + pagamento + ", cliente=" + cliente + ", funcionario=" + funcionario + '}';
     }
     
-   
+       public void atualizarTotal(Integer quantidade, BigDecimal precoVenda) {
+        if (this.valorTotal == null) {
+            this.valorTotal = new BigDecimal(0.0);
+        }
+
+        double x = quantidade * precoVenda.doubleValue();
+
+        this.valorTotal = new BigDecimal(x + this.valorTotal.doubleValue());
+
+    }
 
 }
