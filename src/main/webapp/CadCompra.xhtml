@@ -12,7 +12,9 @@
             <p:panelGrid columns="2">
                 <p:outputLabel value="Fornecedor" />
                 <p:selectOneMenu value="#{guiCompra.nomeFornecedor}" disabled="#{guiCompra.compraCriada}">
-                    <f:selectItems value="#{guiCompra.lstFornecedores}" />
+                    <!--<f:selectItems value="#{guiCompra.lstFornecedores}" />-->
+                    <f:selectItems value="#{guiCompra.lstFornecedores}" 
+                                   var="f" itemLabel="#{f.nome}" itemValue="#{f}" />
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Data" />
@@ -26,20 +28,27 @@
             <p:panelGrid columns="2">
                 <p:outputLabel value="Produto" />
                 <p:selectOneMenu value="#{guiCompra.nomeProduto}" >
-                    <f:selectItems value="#{guiCompra.lstProdutos}" />
+                    <f:selectItems value="#{guiCompra.lstProdutos}" 
+                                   var="prod" itemLabel="#{prod.nome}" itemValue="#{prod}"/>
+                    
+                    <!--<f:selectItems value="#{selectOneMenuView.themes}"
+                    var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" /> -->
+                    
                 </p:selectOneMenu>
                 <p:outputLabel value="Quantidade" />
                 <p:inputText value="#{guiCompra.quantidade}" >
                     <f:convertNumber integerOnly="true"/>
+                    
                 </p:inputText>
                 <p:outputLabel value="Preço" />
                 <p:inputText value="#{guiCompra.valorCompra}" >
                     <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
                 </p:inputText>
             </p:panelGrid>
-
-            <p:commandButton value="Incluir" action="#{guiCompra.adicionarProduto()}" ajax="false" />
+             
             <p:commandButton value="Voltar" action="principal" ajax="false" />
+            <p:commandButton value="Incluir" action="#{guiCompra.adicionarProduto()}" ajax="false" />
+           
 
             <br />
             <br />

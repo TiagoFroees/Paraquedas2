@@ -58,7 +58,7 @@ public class GuiVenda implements Serializable {
         lstProdutos = daoProduto.getProdutos();
 
         vendaCriada = false;
-
+        System.out.println("teste");
         return "CadVenda";
     }
 
