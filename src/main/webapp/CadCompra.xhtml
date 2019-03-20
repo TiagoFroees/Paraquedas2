@@ -48,10 +48,10 @@
              
             <p:commandButton value="Voltar" action="principal" ajax="false" />
             <p:commandButton value="Incluir" action="#{guiCompra.adicionarProduto()}" ajax="false" />
-           
 
             <br />
             <br />
+            //Buscar o nome(string) do produto e setar o produto selecionado.//
             <p:dataTable value="#{guiCompra.lstItensCompra}" var="c" id="tabela">
                 <p:column headerText="Produto">
                     <p:outputLabel value="#{c.produto.nome}" />
