@@ -133,7 +133,7 @@ public class Produto implements Serializable {
     }
 
     public void venderProduto(Integer quantidade) {
-        this.estoque += quantidade;
+        this.estoque -= quantidade;
     }
 
 }
