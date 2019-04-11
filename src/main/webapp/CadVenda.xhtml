@@ -12,7 +12,9 @@
             <p:panelGrid columns="2">
                 <p:outputLabel value="Cliente" />
                 <p:selectOneMenu value="#{guiVenda.nomeCliente}" disabled="#{guiVenda.vendaCriada}">
-                    <f:selectItems value="#{guiVenda.lstClientes}" />
+                    <!--f:selectItems value="#{guiVenda.lstClientes}" /-->
+                    <f:selectItems value="#{guiVenda.lstClientes}" 
+                                   var="c" itemLabel="#{c.nome}" itemValue="#{c}" />
                 </p:selectOneMenu>
                 
                 <p:outputLabel value="Data" />
@@ -26,7 +28,8 @@
             <p:panelGrid columns="2">
                 <p:outputLabel value="Produto" />
                 <p:selectOneMenu value="#{guiVenda.nomeProduto}" >
-                    <f:selectItems value="#{guiVenda.lstProdutos}" />
+                    <f:selectItems value="#{guiVenda.lstProdutos}" 
+                                    var="prod" itemLabel="#{prod.nome}" itemValue="#{prod}"/>
                 </p:selectOneMenu>
                 <p:outputLabel value="Quantidade" />
                 <p:inputText value="#{guiVenda.quantidade}" >
