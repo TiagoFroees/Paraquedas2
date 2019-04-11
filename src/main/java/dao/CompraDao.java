@@ -20,6 +20,7 @@ import model.Produto;
  *
  * @author Tiago-PC
  */
+
 @Stateless
 public class CompraDao {
 
