@@ -6,6 +6,7 @@
 package service;
 
 import dao.ClienteDao;
+import dao.ProdutoDao;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import javax.ejb.EJB;
@@ -16,7 +17,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.AsyncResponse;
-import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import model.Cliente;
 
@@ -41,8 +41,7 @@ public class UsuarioRes {
         return daoCliente.getClientes();
         
     }
-    
-    
+      
     
 }
 

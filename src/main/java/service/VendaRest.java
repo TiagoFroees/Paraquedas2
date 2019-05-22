@@ -5,7 +5,6 @@
  */
 package service;
 
-import dao.ClienteDao;
 import dao.ProdutoDao;
 import java.util.List;
 import javax.ejb.EJB;
@@ -15,31 +14,34 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import model.Cliente;
+import model.ItemVenda;
 import model.Produto;
+import model.Venda;
 
 /**
  *
- * @author ewerton10
+ * @author Tiago-PC
  */
 @Named
-@Path("produto")
+@Path("venda")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
-public class ProdutoRes {
-    
+public class VendaRest {
+   
     @EJB
-    ProdutoDao daoProduto;
+    ProdutoDao VendaDao;
+    
     
     @GET
-    //@Path("buscarPorLoginSenha/{login}/{senha}")
-    @Path("listarproduto")
-    //public List<Cliente> buscarClientes(@PathParam("login") String strLogin, @PathParam("senha") String strSenha) {
-    public List<Produto> listarProdutos {
-        return daoProduto.getProdutos();
+    
+    @Path("listarvenda")
+    
+    public List<Produto> buscarVendas(){
+        return VendaDao.getProdutos();
         
-    }
-    
-    
+      
+        
+    } 
 }
+
