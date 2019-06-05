@@ -58,7 +58,14 @@
             <groupId>org.glassfish.jersey.media</groupId> 
             <artifactId>jersey-media-moxy</artifactId> 
             <version>2.26</version> 
-        </dependency>            
+        </dependency>  
+        
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.4</version>
+           
+        </dependency>          
     </dependencies>
 
     <build>
