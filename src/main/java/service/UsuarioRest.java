@@ -5,8 +5,7 @@
  */
 package service;
 
-import dao.ProdutoDao;
-import dao.VendaDao;
+import dao.UsuarioDao;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,42 +16,41 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import model.Produto;
-import model.Venda;
+import model.Usuario;
 
 /**
  *
  * @author Tiago-PC
  */
 @Named
-@Path("venda")
+@Path("usuario")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
-public class VendaRest {
+public class UsuarioRest {
 
     @EJB
-    VendaDao VendaDao;
+    UsuarioDao daoUsuario;
 
     @GET
+    //@Path("buscarPorLoginSenha/{login}/{senha}")
+    @Path("listarusuarios")
+    //public List<Cliente> buscarClientes(@PathParam("login") String strLogin, @PathParam("senha") String strSenha) {
+    public List<Usuario> buscarUsuarios() {
+        return daoUsuario.getUsuarios();
 
-    @Path("listarvenda")
-
-    public List<Produto> buscarVendas() {
-        return null;
-        //return VendaDao.getItens(venda);
-    
     }
 
     @POST
-    @Path("novavenda")
-    public Response criarNovaVenda(Venda venda) {
+    @Path("novousuario")
+    public Response criarNovoUsuario(Usuario usuario) {
         try {
 
-            VendaDao.gravar(venda, false);
+            daoUsuario.incluir(usuario);
             return Response.ok().build();
         } catch (Exception ex) {
             return Response.status(Response.Status.BAD_REQUEST).entity(ex.getMessage()).build();
         }
     }
+
 }
